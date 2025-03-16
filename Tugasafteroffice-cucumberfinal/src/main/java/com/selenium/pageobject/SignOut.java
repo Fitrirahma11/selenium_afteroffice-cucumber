@@ -1,0 +1,30 @@
+package com.selenium.pageobject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+
+public class SignOut {
+
+    WebDriver driver;
+
+    public SignOut(WebDriver driver) {
+        this.driver = driver;
+        initElements();
+        initElements();
+    }
+
+    private void initElements() {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(id="logout_sidebar_link")
+    private WebElement signOutButton;
+
+    public void clickSignOutButton() {
+        signOutButton.click();
+    }
+
+}
