@@ -21,7 +21,7 @@ public class Hooks {
     @Before
     public void setupAutomation() throws IOException{
         Properties properties = new Properties();
-        FileInputStream fileInputStream = new FileInputStream("D:\\QA\\selenium1\\selenium\\src\\main\\resources\\GlobalData.properties");
+        FileInputStream fileInputStream = new FileInputStream("X:/Booatcamp Selenium/selenium_afteroffice-cucumber/Tugasafteroffice-cucumberfinal/src/main/resources/GlobalData.properties");
 
         properties.load(fileInputStream);
         String browserName = properties.getProperty("browser");
@@ -37,12 +37,12 @@ public class Hooks {
             System.setProperty("webdriver.gecko.driver", "X:/Booatcamp Selenium/chromedriver-win64/geckodriver.exe");
             driver =  new FirefoxDriver();
         }
-        driver.get("https://www.saucedemo.com/v1/");
+        driver.get("https://www.saucedemo.com");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @After
-    public void tearDownAutomation() {
+    public static void tearDownAutomation() {
         if (driver != null) {
             driver.close();
         }

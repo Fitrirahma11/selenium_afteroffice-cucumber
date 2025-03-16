@@ -20,7 +20,7 @@ import io.cucumber.java.en.When;
 
 public class StepDefinitions {
     
-    WebDriver driver;
+   public  WebDriver driver;
 
     // @Given ("User landing to ecommerce")
     // public void landingPage() {

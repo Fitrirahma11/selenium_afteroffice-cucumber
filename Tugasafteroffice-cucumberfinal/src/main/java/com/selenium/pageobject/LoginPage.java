@@ -1,33 +1,39 @@
 package com.selenium.pageobject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+import abstrakomponen.Abstractcomponen;
+
+public class LoginPage extends Abstractcomponen{
+
 
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        initializeElements();
-    }
-
-    private void initializeElements() {
         PageFactory.initElements(driver, this);
-    }
+      }
+
 
  @FindBy(id = "user-name")
- private WebElement userName;
+ public WebElement userName;
 
  @FindBy(id = "password")
- private WebElement userPassword;
+ public  WebElement userPassword;
 
  @FindBy(id = "login-button")
- private WebElement loginButton;
+ public  WebElement loginButton;
 
- public void loginApplication(String username, String password) {
+ By usernameBy = By.id("user-name");
+ 
+ public void loginApplication(String username, String password) 
+{
+    visibilityOfElementLocated(usernameBy);
      userName.sendKeys(username);
      userPassword.sendKeys(password);
      loginButton.click();
@@ -42,3 +48,6 @@ public class LoginPage {
     }
 
 }
+
+
+
